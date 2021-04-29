@@ -8,6 +8,7 @@ import paramiko
 import re
 import os
 import yaml
+import json
 
 PATH=os.path.dirname(os.path.abspath(__file__))
 
@@ -20,7 +21,7 @@ print("\n\nYour AWS CLI export command:\n")
 print(command)
 
 cluster_id_json=os.popen(command).read()
-cluster_id=cluster_id_json.split(": \"",1)[1].split("\"\n")[0]
+cluster_id=json.loads(cluster_id_json)["ClusterId"]
 
 # Gives EMR cluster information
 client_EMR = boto3.client('emr', region_name=c['config']['REGION'])
