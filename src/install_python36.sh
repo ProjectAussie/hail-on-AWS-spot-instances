@@ -16,7 +16,7 @@ if grep isMaster /mnt/var/lib/info/instance.json | grep true; then
 	pandas
 	utils
 	ipywidgets
-	numpy
+	numpy==1.15.4
 	scipy
 	bokeh
 	requests
@@ -34,7 +34,7 @@ else
 	pandas
 	utils
 	ipywidgets
-	numpy
+	numpy==1.15.4
 	scipy
 	bokeh
 	requests
